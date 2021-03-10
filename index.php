@@ -6,7 +6,7 @@ include 'header.php';
 
     <?php
 
-    $connection = mysqli_connect("localhost", "root", "", "crud") or die("Couldn't connect'");
+    $connection = mysqli_connect("localhost", "root", "", "crud") or die("Couldn't connect'") or die("Couldn't connect");
     $sql_query = "SELECT * FROM student join studentclass where student.sclass=studentclass.cid";
     $result = mysqli_query($connection, $sql_query) or die("Failed");
 
@@ -33,7 +33,7 @@ include 'header.php';
                         <td><?php echo $data["cname"] ?></td>
                         <td><?php echo $data["sphone"] ?></td>
                         <td>
-                            <a href='edit.php'>Edit</a>
+                            <a href="edit.php?id=<?php echo $data['sid'] ?>">Edit</a>
                             <a href='delete-inline.php'>Delete</a>
                         </td>
                     </tr>
